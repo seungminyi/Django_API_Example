@@ -2,6 +2,7 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from quickstart.serializers import UserSerializer, GroupSerializer
 from django.http import HttpResponse
+from . import quickstart
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -26,3 +27,6 @@ def OutWorkRegist_day(request,WorkerName,OutOfficeName,day):
     
     message =  WorkerName + " " + OutOfficeName + " " + str(day) + "일간 " + " 외근등록 완료"
     return HttpResponse(message)
+
+def calExam(request):
+    return HttpResponse(quickstart.calExam())
